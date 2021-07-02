@@ -18,10 +18,10 @@ class Snake:
         self.rect = []
         self.body_image = pygame.image.load(body_img_path)
        # self.head_image = pygame.image.load(head_img_path)
-        self.head_image_left = pygame.image.load("snake_left.png")
-        self.head_image_right = pygame.image.load("snake_right.png")
-        self.head_image_up = pygame.image.load("snake_up.png")
-        self.head_image_down = pygame.image.load("snake.png")
+        self.head_image_left = pygame.image.load("assets/snake_left.png")
+        self.head_image_right = pygame.image.load("assets/snake_right.png")
+        self.head_image_up = pygame.image.load("assets/snake_up.png")
+        self.head_image_down = pygame.image.load("assets/snake.png")
         self.rect.append(self.head_image_down.get_rect())
         for i in range(1, self.length):
             self.rect.append(self.body_image.get_rect())
@@ -146,8 +146,8 @@ def restart_game():
     global snake, food, start_time, GAME_STATE
     del snake
     del food
-    snake = Snake("Body.png", 3)
-    food = Food('apple.png')
+    snake = Snake("assets/body.png", 3)
+    food = Food('assets/apple.png')
     GAME_STATE = 'ready'
     start_time = pygame.time.get_ticks()
     count_down(start_time)
@@ -217,8 +217,8 @@ def main_logic():
         state_game_over()
 
 
-snake = Snake("Body.png", 3)
-food = Food('apple.png')
+snake = Snake("assets/body.png", 3)
+food = Food('assets/apple.png')
 FPS = 120
 CANVAS_WIDTH = 600
 CANVAS_HEIGHT = 600
@@ -233,14 +233,14 @@ GAME_FONT_2 = pygame.font.Font("freesansbold.ttf", 15)
 clock = pygame.time.Clock()
 start_time = 0
 screen = pygame.display.set_mode((CANVAS_WIDTH, CANVAS_HEIGHT))
-ICON = pygame.image.load('snake.png')
+ICON = pygame.image.load('assets/snake.png')
 pygame.display.set_icon(ICON)
 pygame.display.set_caption('Snake Game')
-BOARD = pygame.image.load("board.png")
-BACKGROUND = pygame.image.load("home.png")
-SCORE_SOUND = pygame.mixer.Sound("hish.wav")
-GAME_OVER_SOUND = pygame.mixer.Sound("GameOver.wav")
-pygame.mixer.music.load("fun.mp3")
+BOARD = pygame.image.load("assets/board.png")
+BACKGROUND = pygame.image.load("assets/home.png")
+SCORE_SOUND = pygame.mixer.Sound("assets/hish.wav")
+GAME_OVER_SOUND = pygame.mixer.Sound("assets/GameOver.wav")
+pygame.mixer.music.load("assets/fun.mp3")
 pygame.mixer.music.play(loops=-1)
 DELAY_SNAKE_MOVEMENT = pygame.USEREVENT + 0
 pygame.time.set_timer(DELAY_SNAKE_MOVEMENT, GAME_SPEED)
